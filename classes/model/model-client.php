@@ -10,10 +10,11 @@ class ModelClient
   private $tel;
   private $adresse;
   private $ville;
-  private $codepost;
+  private $code_post;
+  
   
 
-  public function __construct($id = null, $nom = null, $prenom = null, $mail = null, $pass = null, $tel = null, $adresse = null, $ville = null, $codepost = null )
+  public function __construct($id = null, $nom = null, $prenom = null, $mail = null, $pass = null, $tel = null, $adresse = null, $ville = null, $code_post = null, $token = null )
   {
     $this->id = $id;
     $this->nom = $nom;
@@ -23,7 +24,7 @@ class ModelClient
     $this->tel = $tel;
     $this->adresse = $adresse;
     $this->ville = $ville;
-    $this->codepost = $codepost;
+    $this->codepost = $code_post;
     
   }
 
@@ -39,11 +40,11 @@ class ModelClient
 
 
 
-  public function ajoutClient($nom, $prenom, $mail, $pass, $tel, $adresse, $ville, $codepost )
+  public function ajoutClient($nom, $prenom, $mail, $pass, $tel, $adresse, $ville, $code_post )
   {
     $idcon = connexion();
     $requete = $idcon->prepare("
-      INSERT INTO client VALUES ( null, :nom, :prenom, :mail, :pass, :tel, :adresse, :ville, :codepost  )
+    INSERT INTO client VALUES ( null, :nom, :prenom, :mail, :pass, :tel, :adresse, :ville, :code_post, '')
     ");
     return $requete->execute([
       ':nom' => $nom,
@@ -53,7 +54,7 @@ class ModelClient
       ':tel' => $tel,
       ':adresse' => $adresse,
       ':ville' => $ville,
-      ':codepost' => $codepost,     
+      ':code_post' => $code_post,     
     ]);
   }
 
@@ -82,11 +83,11 @@ class ModelClient
 
 
 
-  public function modifClient($id, $nom, $prenom, $mail, $pass, $tel, $adresse, $ville, $codepost )
+  public function modifClient($id, $nom, $prenom, $mail, $pass, $tel, $adresse, $ville, $code_post )
   {
     $idcon = connexion();
     $requet = $idcon->prepare("
-      UPDATE client SET nom = :nom, prenom = :prenom, mail = :mail, pass = :pass, tel = :tel, adresse = :adresse, ville = :ville, codepost = :codepost WHERE id = :id
+      UPDATE client SET nom = :nom, prenom = :prenom, mail = :mail, pass = :pass, tel = :tel, adresse = :adresse, ville = :ville, code_post = :code_post WHERE id = :id
     ");
     return $requet->execute([
       ':id' => $id,
@@ -97,7 +98,7 @@ class ModelClient
       ':tel' => $tel,
       ':adresse' => $adresse,
       ':ville' => $ville,
-      ':codepost' => $codepost,
+      ':code_post' => $code_post,
       
     ]);
   }
@@ -149,9 +150,9 @@ class ModelClient
     return $this->ville;
   }
 
-  public function getCodepost()
+  public function getCode_post()
   {
-    return $this->codepost;
+    return $this->code_post;
   }
 
   
@@ -204,10 +205,12 @@ class ModelClient
     return $this;
   }
 
-  public function setCodepost($codepost)
+  public function setCode_post($code_post)
   {
-    $this->codepost = $codepost;
+    $this->code_post = $code_post;
     return $this;
   }
+
+  
 }
   

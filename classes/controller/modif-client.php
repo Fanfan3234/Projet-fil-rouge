@@ -26,7 +26,7 @@
     }
   } else {
     if (isset($_POST['id']) && $client->voirClient($_POST['id'])) {
-      if ($client->modifClient($_POST['id'], $_POST['nom'], $_POST['prenom'], $_POST['mail'], $_POST['pass'], $_POST['tel'], $_POST['adresse'], $_POST['ville'], $_POST['codepost'])) {
+      if ($client->modifClient($_POST['id'], $_POST['nom'], $_POST['prenom'], $_POST['mail'], $_POST['pass'], $_POST['tel'], $_POST['adresse'], $_POST['ville'], $_POST['code_post'])) {
         ViewTemplate::alert("success", "Le client a été modifié avec succès", "liste-client.php");
       } else {
         ViewTemplate::alert("danger", "Echec de la modification", "liste-client.php");

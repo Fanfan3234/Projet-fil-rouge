@@ -35,7 +35,7 @@ class ViewClient
                                 <td><?= $client['prenom'] ?></td>
                                 <td><?= $client['mail'] ?></td>
                                 <td><?= $client['tel'] ?></td>
-                                <td><?= $client['adresse'] ?><br/><?= $client['ville'] ?>&nbsp<?= $client['codepost'] ?></td>
+                                <td><?= $client['adresse'] ?><br/><?= $client['ville'] ?>&nbsp<?= $client['code_post'] ?></td>
                                 <td>
                                     <a href="voir-client.php?id=<?= $client['id'] ?>" class="btn btn-primary">Voir</a>
                                     <a href="modif-client.php?id=<?= $client['id'] ?>" class="btn btn-info">Modifier</a>
@@ -100,7 +100,7 @@ class ViewClient
             </div>
             <div class="form-group">
                 <label for="pass">Mot de passe : </label>
-                <input type="pass" class="form-control" name="pass" id="pass">
+                <input type="password" class="form-control" name="pass" id="pass">
                 
             </div>
             <div class="form-group">
@@ -112,8 +112,8 @@ class ViewClient
                 <input type="adresse" class="form-control" name="adresse" id="adresse">
                 <label for="ville">ville : </label>
                 <input type="ville" class="form-control" name="ville" id="ville">
-                <label for="codepost">code postal : </label>
-                <input type="codepost" class="form-control" name="codepost" id="codepost">
+                <label for="code_post">code postal : </label>
+                <input type="code_post" class="form-control" name="code_post" id="code_post">
             </div>
             
 
@@ -146,7 +146,7 @@ class ViewClient
             </div>
             <div class="form-group">
                 <label for="pass">Mot de passe : </label>
-                <input type="pass" class="form-control" name="pass" id="pass">
+                <input type="password" class="form-control" name="pass" id="pass">
 
             </div>
             <div class="form-group">
@@ -158,8 +158,8 @@ class ViewClient
                 <input type="adresse" class="form-control" name="adresse" id="adresse">
                 <label for="ville">ville : </label>
                 <input type="ville" class="form-control" name="ville" id="ville">
-                <label for="codepost">code postal : </label>
-                <input type="codepost" class="form-control" name="codepost" id="codepost">
+                <label for="code_post">code postal : </label>
+                <input type="code_post" class="form-control" name="code_post" id="code_post">
             </div>
             
 

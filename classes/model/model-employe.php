@@ -7,15 +7,16 @@ class ModelEmploye
     private $prenom;
     private $mail;
     private $pass;
+    private $role;
     
-    public function __construct($id = null, $nom = null, $prenom = null, $mail = null, $pass = null)
+    public function __construct($id = null, $nom = null, $prenom = null, $mail = null, $pass = null, $role = '2')
     {
         $this->id = $id;
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->mail = $mail;
         $this->pass = $pass;
-        
+        $this->role = $role;
     }
 
     public function listeEmploye()
@@ -30,18 +31,18 @@ class ModelEmploye
 
 
 
-    public function ajoutEmploye($nom, $prenom, $mail, $pass)
+    public function ajoutEmploye($nom, $prenom, $mail, $pass, $role)
     {
         $idcon = connexion();
         $requete = $idcon->prepare("
-      INSERT INTO employe VALUES ( null, :nom, :prenom, :mail, :pass)
+      INSERT INTO employe VALUES ( null, :nom, :prenom, :mail, :pass, :role)
     ");
         return $requete->execute([
             ':nom' => $nom,
             ':prenom' => $prenom,
             ':mail' => $mail,
-            ':pass' => $pass
-            
+            ':pass' => $pass,
+            ':role' => $role
         ]);
     }
 
@@ -118,6 +119,11 @@ class ModelEmploye
         return $this->pass;
     }
 
+    public function getRole()
+    {
+        return $this->role;
+    }
+
     public function setId($id)
     {
         $this->id = $id;
@@ -145,6 +151,12 @@ class ModelEmploye
     public function setPass($pass)
     {
         $this->pass = $pass;
+        return $this;
+    }
+
+    public function setRole($role)
+    {
+        $this->role = $role;
         return $this;
     }
 }

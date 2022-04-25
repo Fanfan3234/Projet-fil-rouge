@@ -34,16 +34,16 @@ class ViewTemplate
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="../controller/liste-client.php">clients <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="liste-client.php">clients <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="../controller/liste-employe.php">employes <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="liste-employe.php">employes <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../controller/ajout-client.php">Ajout clients <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="ajout-client.php">Ajout clients <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../controller/ajout-employe.php">Ajout employes <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="ajout-employe.php">Ajout employes <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
