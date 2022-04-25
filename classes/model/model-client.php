@@ -11,7 +11,7 @@ class ModelClient
   private $adresse;
   private $ville;
   private $code_post;
-  
+  private $token;
   
 
   public function __construct($id = null, $nom = null, $prenom = null, $mail = null, $pass = null, $tel = null, $adresse = null, $ville = null, $code_post = null, $token = null )
@@ -25,7 +25,7 @@ class ModelClient
     $this->adresse = $adresse;
     $this->ville = $ville;
     $this->codepost = $code_post;
-    
+    $this->token = $token;
   }
 
   public function listeClient()
@@ -40,7 +40,7 @@ class ModelClient
 
 
 
-  public function ajoutClient($nom, $prenom, $mail, $pass, $tel, $adresse, $ville, $code_post )
+  public function ajoutClient($nom, $prenom, $mail, $pass, $tel, $adresse, $ville, $code_post  )
   {
     $idcon = connexion();
     $requete = $idcon->prepare("
@@ -83,11 +83,11 @@ class ModelClient
 
 
 
-  public function modifClient($id, $nom, $prenom, $mail, $pass, $tel, $adresse, $ville, $code_post )
+  public function modifClient($id, $nom, $prenom, $mail, $pass, $tel, $adresse, $ville, $code_post, $token )
   {
     $idcon = connexion();
     $requet = $idcon->prepare("
-      UPDATE client SET nom = :nom, prenom = :prenom, mail = :mail, pass = :pass, tel = :tel, adresse = :adresse, ville = :ville, code_post = :code_post WHERE id = :id
+      UPDATE client SET nom = :nom, prenom = :prenom, mail = :mail, pass = :pass, tel = :tel, adresse = :adresse, ville = :ville, code_post = :code_post,  WHERE id = :id
     ");
     return $requet->execute([
       ':id' => $id,
@@ -99,11 +99,11 @@ class ModelClient
       ':adresse' => $adresse,
       ':ville' => $ville,
       ':code_post' => $code_post,
-      
+      ':token' => $token,
     ]);
   }
 
-
+ 
   /*
   
   GETTERS ET SETTERS
@@ -154,8 +154,11 @@ class ModelClient
   {
     return $this->code_post;
   }
-
   
+  public function getToken()
+  {
+    return $this->token;
+  }
 
   public function setId($id)
   {

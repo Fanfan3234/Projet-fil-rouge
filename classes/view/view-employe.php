@@ -112,8 +112,8 @@ class ViewEmploye
                     <input type="email" required="veuillez compléter ce champ" class="form-control" name="mail" id="mail">
                 </div>
                 <div class="form-group">
-                    <label for="pass" >Mot de passe : </label>
-                    <input type="pass" required="veuillez compléter ce champ" class="form-control" name="pass" id="pass">
+                    <label for="pass">Mot de passe : </label>
+                    <input type="password" required="veuillez compléter ce champ" class="form-control" name="pass" id="pass">
 
                 </div>
                 <div class="form-group">
@@ -128,6 +128,7 @@ class ViewEmploye
 
 
                 <button type="submit" class="btn btn-primary" name="ajout" id="ajout"> Ajouter </button>
+
                 <button type="reset" class="btn btn-danger"> Réinitialiser </button>
             </form>
         </body>
@@ -143,28 +144,28 @@ class ViewEmploye
         $user = $employe->voirEmploye($id);
     ?>
 
-        < form class="col-md-6 offset-md-3" method="post" action="modif-employe.php">
-            < input type="hidden" class="form-control" name="id" id="id" value="<?= $user['id'] ?>">
-                < div class="form-group">
-                    < label for="nom"> Nom: < /label>
-                            < input type="text" class="form-control" name="nom" id="nom" value="<?= $user['nom'] ?>">
-                                < /div>
-                                    < div class="form-group">
-                                        < label for="prenom"> Prenom: < /label>
-                                                < input type="text" class="form-control" name="prenom" id="prenom" value="<?= $user['prenom'] ?>">
-                                                    < /div>
-                                                        < div class="form-group">
-                                                            < label for="mail"> Adresse mail: < /label>
-                                                                    < input type="email" class="form-control" name="mail" id="mail" value="<?= $user['mail'] ?>">
-                                                                        < /div>
-                                                                            < div class="form-group">
-                                                                                < label for="pass"> Mot de passe: < /label>
-                                                                                        < input type="password" class="form-control" name="pass" id="pass">
-                                                                                            < /div>
+        <form class="col-md-6 offset-md-3" method="post" action="modif-employe.php">
+            <input type="hidden" class="form-control" name="id" id="id" value="<?= $user['id'] ?>">
+            <div class="form-group">
+                <label for="nom"> Nom: < /label>
+                        <input type="text" class="form-control" name="nom" id="nom" value="<?= $user['nom'] ?>">
+            </div>
+            <div class="form-group">
+                <label for="prenom"> Prenom: </label>
+                <input type="text" class="form-control" name="prenom" id="prenom" value="<?= $user['prenom'] ?>">
+            </div>
+            <div class="form-group">
+                <label for="mail"> Adresse mail: </label>
+                <input type="email" class="form-control" name="mail" id="mail" value="<?= $user['mail'] ?>">
+            </div>
+            <div class="form-group">
+                <label for="pass"> Mot de passe: </label>
+                <input type="password" class="form-control" name="pass" id="pass">
+            </div>
 
-                                                                                                < button type="submit" class="btn btn-primary" name="modif" id="modif"> Modifier < /button>
-                                                                                                        < button type="reset" class="btn btn-danger"> Réinitialiser < /button>
-                                                                                                                < /form>
-                                                                                                            <?php
-                                                                                                        }
-                                                                                                    }
+            <button type="submit" class="btn btn-primary" name="modif" id="modif"> Modifier </button>
+            <button type="reset" class="btn btn-danger"> Réinitialiser </button>
+        </form>
+<?php
+    }
+}

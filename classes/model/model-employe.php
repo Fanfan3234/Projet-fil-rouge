@@ -8,7 +8,7 @@ class ModelEmploye
     private $mail;
     private $pass;
     private $role;
-    
+
     public function __construct($id = null, $nom = null, $prenom = null, $mail = null, $pass = null, $role = '2')
     {
         $this->id = $id;
@@ -46,6 +46,8 @@ class ModelEmploye
         ]);
     }
 
+
+
     public function voirEmploye($id)
     {
         $idcon = connexion();
@@ -68,8 +70,6 @@ class ModelEmploye
             ':id' => $id,
         ]);
     }
-
-
 
     public function modifEmploye($id, $nom, $prenom, $mail, $pass)
     {

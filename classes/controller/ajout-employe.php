@@ -16,11 +16,11 @@
   require_once "../model/model-employe.php";
 
   ViewTemplate::menu();
- 
+
   if (isset($_POST['ajout'])) {
     $employe = new ModelEmploye();
-    if($employe->ajoutEmploye($_POST['nom'], $_POST['prenom'], $_POST['mail'], $_POST['tel'], $_POST['pass'], $_POST['role'])){
-      ViewTemplate::alert("success","Employe ajouté avec succès", "liste-employe.php");
+    if($employe->ajoutEmploye($_POST['nom'], $_POST['prenom'], $_POST['mail'], $_POST['pass'], $_POST['role'])){
+      ViewTemplate::alert("success","employe ajouté avec succès", "liste-employe.php");
     }
     else {
       ViewTemplate::alert("danger", "Erreur d'ajout", "ajout-employe.php");
