@@ -1,5 +1,5 @@
 <?php
-require_once '../model/model-client.php';
+//require_once '../model/model-client.php';
 
 class ViewClient
 {

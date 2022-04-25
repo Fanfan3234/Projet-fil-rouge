@@ -43,9 +43,9 @@ class ModelClient
   public function ajoutClient($nom, $prenom, $mail, $pass, $tel, $adresse, $ville, $code_post  )
   {
     $idcon = connexion();
-    $requete = $idcon->prepare("
-    INSERT INTO client VALUES ( null, :nom, :prenom, :mail, :pass, :tel, :adresse, :ville, :code_post, '')
-    ");
+    $requete = $idcon->prepare("INSERT INTO client VALUES ( null, :nom, :prenom, :mail, :pass, :tel, :adresse, :ville, :code_post, null)");
+    
+    
     return $requete->execute([
       ':nom' => $nom,
       ':prenom' => $prenom,
