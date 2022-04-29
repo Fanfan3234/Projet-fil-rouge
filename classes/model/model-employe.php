@@ -9,7 +9,7 @@ class ModelEmploye
     private $pass;
     private $role;
 
-    public function __construct($id = null, $nom = null, $prenom = null, $mail = null, $pass = null, $role = '2')
+    public function __construct($id = null, $nom = null, $prenom = null, $mail = null, $pass = null, $role = null)
     {
         $this->id = $id;
         $this->nom = $nom;
@@ -28,24 +28,60 @@ class ModelEmploye
         $requete->execute();
         return $requete->fetchAll(PDO::FETCH_ASSOC);
     }
-
-
+    
+    public static function profilEmploye($id)
+    {
+      $idcon = connexion();
+      $requete = $idcon->prepare("
+        SELECT * FROM employe where id=:id;
+      ");
+      $requete->execute([
+        ':id' => $id,
+      ]);
+      return $requete->fetch(PDO::FETCH_ASSOC);
+    }
 
     public function ajoutEmploye($nom, $prenom, $mail, $pass, $role)
     {
         $idcon = connexion();
         $requete = $idcon->prepare("
-      INSERT INTO employe VALUES ( null, :nom, :prenom, :mail, :pass, :role)
-    ");
+        INSERT INTO employe VALUES ( null, :nom, :prenom, :mail, :pass, :role )
+      ");
         return $requete->execute([
             ':nom' => $nom,
             ':prenom' => $prenom,
             ':mail' => $mail,
             ':pass' => $pass,
-            ':role' => $role
+            ':role' => $role,
         ]);
     }
 
+    public function connexionEmploye($mail)
+    {
+        $idcon = connexion();
+        $requete = $idcon->prepare("
+          SELECT * FROM employe WHERE mail=:mail
+        ");
+
+        $requete->execute([
+            ':mail' => $mail,
+        ]);
+        return $requete->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function espaceAdmin($role)
+    {
+        $idcon = connexion();
+        $requete = $idcon->prepare("
+      SELECT * FROM employe where role=:role;
+    ");
+        $requete->execute([
+            ':role' => $role,
+        ]);
+        return $requete->fetch(PDO::FETCH_ASSOC);
+    }
+
+    
 
 
     public function voirEmploye($id)

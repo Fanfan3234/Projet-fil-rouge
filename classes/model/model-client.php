@@ -1,5 +1,6 @@
 <?php
 require_once "connexion.php";
+
 class ModelClient
 {
   private $id;
@@ -14,7 +15,7 @@ class ModelClient
   private $token;
   
 
-  public function __construct($id = null, $nom = null, $prenom = null, $mail = null, $pass = null, $tel = null, $adresse = null, $ville = null, $code_post = null, $token = null )
+  public function __construct($id = null, $nom = null, $prenom = null, $mail = null, $pass = null, $tel = null, $adresse = null, $ville = null, $code_post = null, $token = null) 
   {
     $this->id = $id;
     $this->nom = $nom;
@@ -37,26 +38,50 @@ class ModelClient
     $requete->execute();
     return $requete->fetchAll(PDO::FETCH_ASSOC);
   }
+  
 
-
-
-  public function ajoutClient($nom, $prenom, $mail, $pass, $tel, $adresse, $ville, $code_post  )
-  {
+    public function ajoutClient($nom, $prenom, $mail, $pass, $tel, $adresse, $ville, $code_post)
+    {
     $idcon = connexion();
-    $requete = $idcon->prepare("INSERT INTO client VALUES ( null, :nom, :prenom, :mail, :pass, :tel, :adresse, :ville, :code_post, null)");
-    
-    
+    $requete = $idcon->prepare("
+      INSERT INTO client VALUES ( null, :nom, :prenom, :mail, :pass, :tel, :adresse, :ville, :code_post, '')
+    ");
     return $requete->execute([
       ':nom' => $nom,
       ':prenom' => $prenom,
       ':mail' => $mail,
-      ': pass' => $pass,
+      ':pass' => $pass,
       ':tel' => $tel,
       ':adresse' => $adresse,
       ':ville' => $ville,
-      ':code_post' => $code_post,     
-    ]);
-  }
+      ':code_post' => $code_post,
+      
+      ]);
+    }
+   
+    public function connexionClient($mail){
+      $idcon = connexion();
+      $requete = $idcon->prepare("
+        SELECT * FROM client WHERE mail=:mail
+      ");
+  
+        $requete->execute([
+        ':mail' => $mail,
+       ]); 
+       return $requete->fetch(PDO::FETCH_ASSOC);     
+    }
+  
+    public static function profilClient($id)
+    {
+      $idcon = connexion();
+      $requete = $idcon->prepare("
+        SELECT * FROM client where id=:id;
+      ");
+      $requete->execute([
+        ':id' => $id,
+      ]);
+      return $requete->fetch(PDO::FETCH_ASSOC);
+    }
 
   public function voirClient($id)
   {
@@ -81,13 +106,22 @@ class ModelClient
     ]);
   }
 
+  //public function resetClient($token){$token = random_bytes(32);$requete = $idcon->prepare("INSERT INTO client values (:token);"); $requete->execute([ ':token' => hash('sha256', $token),]);}
+  
+  
+    
+    
+   
+       
 
 
-  public function modifClient($id, $nom, $prenom, $mail, $pass, $tel, $adresse, $ville, $code_post, $token )
+  
+
+  public function modifClient($id, $nom, $prenom, $mail, $pass, $tel, $adresse, $ville, $code_post,$token )
   {
     $idcon = connexion();
     $requet = $idcon->prepare("
-      UPDATE client SET nom = :nom, prenom = :prenom, mail = :mail, pass = :pass, tel = :tel, adresse = :adresse, ville = :ville, code_post = :code_post,  WHERE id = :id
+      UPDATE client SET nom = :nom, prenom = :prenom, mail = :mail, pass = :pass, tel = :tel, adresse = :adresse, ville = :ville, code_post = :code_post, token = :token  WHERE id = :id
     ");
     return $requet->execute([
       ':id' => $id,
@@ -102,7 +136,6 @@ class ModelClient
       ':token' => $token,
     ]);
   }
-
  
   /*
   
@@ -155,10 +188,7 @@ class ModelClient
     return $this->code_post;
   }
   
-  public function getToken()
-  {
-    return $this->token;
-  }
+  
 
   public function setId($id)
   {

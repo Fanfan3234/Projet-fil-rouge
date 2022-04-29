@@ -13,7 +13,6 @@
   <?php
   
   require_once "../view/view-template.php";
-  
   ViewTemplate::menu();
   ViewTemplate::footer();
   ?>
