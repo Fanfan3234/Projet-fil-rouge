@@ -16,12 +16,8 @@ class ViewClient
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Nom</th>
-                            <th scope="col">Prénom</th>
-                            <th scope="col">Mail</th>
-                            <th scope="col">Tel</th>
-                            <th scope="col">adresse</th>
-                            <th scope="col">Actions</th>
+                            <th scope="col">Clients</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -40,10 +36,8 @@ class ViewClient
                                     <?= $client['ville'] ?>&nbsp<?= $client['code_post'] ?>
                                     <br/>
                                     <a href="voir-client.php?id=<?= $client['id'] ?>" class="btn btn-primary">Voir</a>
-
-                                    
                                 </td>
-
+                            
                         <?php
                         }
                         ?>
@@ -63,66 +57,7 @@ class ViewClient
     <?php
     }
 
-    public static function listeClient2()
-    {
-        $client = new ModelClient();
-        $liste = $client->listeClient();
-    ?>
-        <div class="container">
-            <?php
-            if (count($liste) > 0) {
-            ?>
-                <table class="table">
-                    <thead>
-                        <tr>
-                        <th scope="col">#</th>
-                            <th scope="col">Clients</th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <?php
-                        foreach ($liste as $client) {
-                        ?>
-                            <tr>
-                                <th scope="row"><?= $client['id'] ?></th>
-                                <td><?= $client['nom'] ?>
-                                    <?= $client['prenom'] ?>
-                                    <br/>
-                                    <?= $client['mail'] ?>
-                                    <br/>
-                                    <?= $client['tel'] ?>
-                                    <br/>
-                                    <?= $client['adresse'] ?>
-                                    <br />
-                                    <?= $client['ville'] ?>&nbsp<?= $client['code_post'] ?>
-                                    <br/>
-                                    <a href="voir-clientadmin.php?id=<?= $client['id'] ?>" class="btn btn-primary">Voir</a>
-
-                                    
-                                </td>
-
-                            </tr>
-
-                        <?php
-                        }
-                        ?>
-                    </tbody>
-                    <a href="admin.php" class="btn btn-primary">
-                        < Retour</a>
-                </table>
-            <?php
-            } else {
-            ?>
-                <div class="alert alert-danger" role="alert">
-                    Aucun contact n'existe dans la liste.
-                </div>
-            <?php
-            }  ?>
-        </div>
-    <?php
-    }
+    
 
     public static function menu()
     {
@@ -243,29 +178,7 @@ class ViewClient
     <?php
     }
 
-    public static function voirClient2($id)
-    {
-        $client = new ModelClient();
-        $user = $client->voirClient($id);
-    ?>
-        <div>
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title"><?= $user['id'] . " : " . $user['nom'] . " " . $user['prenom'] . $user['adresse'] . " " . $user['ville'] . " " . $user['code_post'] . " ";  ?> </h5>
-
-                    <p class="card-text">
-                        Mail : <a href="mailto:<?= $user['mail'] ?>" target="_blank"><?= $user['mail'] ?></a><br>
-                        Tel : <a href="tel:<?= $user['tel'] ?>" target="_blank"><?= $user['tel'] ?></a>
-                    </p>
-                    <a href="modif-clientadmin.php?id=<?= $user['id'] ?>" class="btn btn-info">Modifier</a>
-                    <a href="supp-client.php?id=<?= $user['id'] ?>" class="btn btn-danger">Supprimer</a><br><br>
-                    <a href="liste-client2.php" class="btn btn-primary">
-                        < Retour</a>
-                </div>
-            </div>
-        </div>
-    <?php
-    }
+    
     //action="<?php htmlspecialchars($_SERVER["PHP_SELF"]);">//
     public static function ajoutClient()
     { ?>

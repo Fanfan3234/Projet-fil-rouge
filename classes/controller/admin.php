@@ -26,12 +26,10 @@
   ?>
 
   <?php
-  ViewEmploye::menuAdmin();
+  ViewEmploye::DashboardAdmin();
   ?>
 
-  <?php
-  echo $salutation;
-  ?>
+  
   <?php
   //ViewEmploye::listeEmploye();
   ?>

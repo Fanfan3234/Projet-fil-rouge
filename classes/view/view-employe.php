@@ -52,63 +52,7 @@ class ViewEmploye
                     Aucun contact n'existe dans la liste.
                 </div>
             <?php
-            }  ?>
-        </div>
-    <?php
-    }
-
-    public static function listeEmploye2()
-    {
-        $employe = new ModelEmploye();
-        $liste = $employe->listeEmploye();
-    ?>
-        <div class="container">
-            <?php
-            if (count($liste) > 0) {
-            ?>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Employes</th>
-
-
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <?php
-                        foreach ($liste as $employe) {
-                        ?>
-                            <tr>
-                                <th scope="row"><?= $employe['id'] ?></th>
-                                <td>
-                                    <?= $employe['nom'] ?>
-                                    <br />
-                                    <?= $employe['prenom'] ?>
-                                    <br />
-                                    <?= $employe['mail'] ?>
-                                    <br />
-                                    <a href="voir-employeadmin.php?id=<?= $employe['id'] ?>" class="btn btn-primary">Voir</a>
-
-
-                                </td>
-                            </tr>
-                        <?php
-                        }
-                        ?>
-                    </tbody>
-                    <a href="admin.php" class="btn btn-primary">
-                        < Retour</a>
-                </table>
-            <?php
-            } else {
-            ?>
-                <div class="alert alert-danger" role="alert">
-                    Aucun contact n'existe dans la liste.
-                </div>
-            <?php
-            }  ?>
+            } ?>
         </div>
     <?php
     }
@@ -121,7 +65,7 @@ class ViewEmploye
         <div>
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title"><?= $user['id'] . " : " . $user['nom'] . " : " . $user['prenom'];  ?> </h5>
+                    <h5 class="card-title"><?= $user['id'] . " : " . $user['nom'] . " : " . $user['prenom']; ?> </h5>
 
                     <p class="card-text">
                         Mail : <a href="mailto:<?= $user['mail'] ?>" target="_blank"><?= $user['mail'] ?></a><br>
@@ -145,7 +89,7 @@ class ViewEmploye
         <div>
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title"><?= $user['id'] . " : " . $user['nom'] . " : " . $user['prenom'];  ?> </h5>
+                    <h5 class="card-title"><?= $user['id'] . " : " . $user['nom'] . " : " . $user['prenom']; ?> </h5>
 
                     <p class="card-text">
                         Mail : <a href="mailto:<?= $user['mail'] ?>" target="_blank"><?= $user['mail'] ?></a><br>
@@ -161,7 +105,6 @@ class ViewEmploye
     <?php
     }
 
-
     public static function profilEmploye($id)
     {
         $employe = new ModelEmploye();
@@ -170,7 +113,7 @@ class ViewEmploye
         <div>
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title"><?= "#" . $user['id'] . " <br/> " . $user['nom'] . " " . $user['prenom'] . "<br/>" . $user['mail'] . " <br/> ";  ?> </h5>
+                    <h5 class="card-title"><?= "#" . $user['id'] . " <br/> " . $user['nom'] . " " . $user['prenom'] . "<br/>" . $user['mail'] . " <br/> "; ?> </h5>
 
                     <p class="card-text">
                         Mail : <a href="mailto:<?= $user['mail'] ?>" target="_blank"><?= $user['mail'] ?></a><br>
@@ -194,7 +137,7 @@ class ViewEmploye
         <div>
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title"><?= "#" . $user['id'] . " <br/> " . $user['nom'] . " " . $user['prenom'] . "<br/>" . $user['mail'] . " <br/> ";  ?> </h5>
+                    <h5 class="card-title"><?= "#" . $user['id'] . " <br/> " . $user['nom'] . " " . $user['prenom'] . "<br/>" . $user['mail'] . " <br/> "; ?> </h5>
 
                     <p class="card-text">
                         Mail : <a href="mailto:<?= $user['mail'] ?>" target="_blank"><?= $user['mail'] ?></a><br>
@@ -210,71 +153,154 @@ class ViewEmploye
     <?php
     }
 
-    public static function menuAdmin()
+    public static function DashboardAdmin()
     {
 
-
     ?>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
-            <div class="contenair">
-                <a class="navbar-brand" href="page-client.php">Navbar</a>
-            </div>
-            <div class="container">
+        <!doctype html>
+        <html lang="en">
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <meta name="description" content="">
+            <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+            <meta name="generator" content="Hugo 0.88.1">
+            <title>Dashboard Template · Bootstrap v4.6</title>
 
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="liste-client2.php">liste clients <span class="sr-only">(current)</span></a>
-
-                        </li>
-
-                        <li class="nav-item active">
-                            <a class="nav-link" href="liste-employe2.php">liste employes<span class="sr-only">(current)</span></a>
-
-                        </li>
-                    </ul>
+            <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/dashboard/">
 
 
 
-                </div>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-
-                </form>
-
-
-            </div>
-
-
-            </div>
-            <!--<li class="nav-item">-->
-
-
-            </li>
-            <div class="nav-item active">
-                <ul class="navbar-nav mr-auto">
-                    <a class="nav-link" href="profil-admin.php">Profil <span class="sr-only">(current)</span></a>
-                    <a class="nav-link" href="deconnexion.php">Deconnexion <span class="sr-only">(current)</span></a>
+            <!-- Bootstrap core CSS -->
+            <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
 
 
+            <style>
+                .bd-placeholder-img {
+                    font-size: 1.125rem;
+                    text-anchor: middle;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                }
+
+                @media (min-width: 768px) {
+                    .bd-placeholder-img-lg {
+                        font-size: 3.5rem;
+                    }
+                }
+            </style>
+
+
+            <!-- Custom styles for this template -->
+            <link href="/css/dashboard.css" rel="stylesheet">
+        </head>
+
+        <body>
+
+            <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+                <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="page-employe.php">Acceuil</a>
+                <br />
+
+
+                <ul class="navbar-nav px-3">
 
                 </ul>
+            </nav>
+            <br />
+
+            <div class="container">
+                <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="row">
+
+                    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                        <div class="sidebar-sticky pt-3">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="profil-employe.php">
+                                        <span data-feather="home"></span>
+                                        Profil <span class="sr-only">(current)</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item text-nowrap">
+                                    <a class="nav-link" href="deconnexion.php">Deconnexion</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="liste-employe.php">
+                                        <span data-feather="file"></span>
+                                        Employes
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="liste-client.php">
+                                        <span data-feather="shopping-cart"></span>
+                                        Clients
+                                    </a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown" aria-expanded="false">Produits</a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdown07">
+                                        <a class="dropdown-item" href="liste-porduit.php">Produits</a>
+                                        <a class="dropdown-item" href="liste-marque.php">Marques</a>
+                                        <a class="dropdown-item" href="liste-categ.php">Categories</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="liste-transport.php">
+                                        <span data-feather="bar-chart-2"></span>
+                                        Transporteurs
+                                    </a>
+                                </li>
+
+                            </ul>
+
+
+                        </div>
+                    </nav>
+
+                    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+                        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                            <h1 class="h2">Espace admin</h1>
+                            <div class="btn-toolbar mb-2 mb-md-0">
+                                <div class="btn-group mr-2">
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!--<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>-->
+
+                    </main>
+                </div>
             </div>
-        </nav>
+
+
+            <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+            <script>
+                window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')
+            </script>
+            <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+
+            <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+            <script src="/js/dashboard.js"></script>
+        </body>
+
+        </html>
+
     <?php
 
     }
 
     public static function menu3()
     {
-
 
     ?>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
@@ -334,7 +360,6 @@ class ViewEmploye
     }
     public static function menu4()
     {
-
 
     ?>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
@@ -400,6 +425,46 @@ class ViewEmploye
     }
 
     public static function menu()
+    {
+
+    ?>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+            <div class="contenair-fluid">
+                <a class="navbar-brand" href="page-employe.php">Navbar</a>
+            </div>
+            <div class="container">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="liste-client.php">liste clients <span class="sr-only"></span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="admin.php">Espace admin <span class="sr-only"></span></a>
+
+                        </li>
+                    </ul>
+
+
+
+                </div>
+            </div>
+            <form class="form-inline my-2 my-lg-0">
+
+                <a class="nav-link" href="profil-employe.php">Profil<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="deconnexion.php">Deconnexion <span class="sr-only">(current)</span></a>
+            </form>
+        </nav>
+    <?php
+
+    }
+
+    public static function menuAdmin()
     {
 
     ?>
