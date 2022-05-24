@@ -6,32 +6,31 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-  <title>Modification de produits</title>
+  <title>Modification de transporteur</title>
 </head>
 
 <body>
   <?php
-require_once "../view/view-employe.php";
-require_once "../view/view-produit.php";
+require_once "../view/view-transporteur.php";
 require_once "../view/view-template.php";
-require_once "../model/model-produit.php";
+require_once "../model/model-transporteur.php";
 
 ViewEmploye::menu();
 
-$produit = new ModelProduit();
+$transporteur = new ModelTransporteur();
 if (isset($_GET['id'])) {
-    if ($produit->voirProduit($_GET['id'])) {
-        ViewProduit::modifProduit($_GET['id']);
+    if ($transporteur->voirTransporteur($_GET['id'])) {
+        ViewTransporteur::modifTransporteur($_GET['id']);
     } else {
-        ViewTemplate::alert("danger", "Le produit n'existe pas", "voir-produit.php");
+        ViewTemplate::alert("danger", "Le transporteur n'existe pas", "liste-transporteuradmin.php");
     }
-    if ($employe->modifEmploye($_POST['id'], $_POST['nom'], $_POST['prenom'], $_POST['mail'], $pass)) {
-        ViewTemplate::alert("success", "Le client a été modifié avec succès", "profil-employe.php");
+    if ($marque->modifTransporteur($_POST['id'], $_POST['nom'], $_POST['prenom'], $_POST['mail'], $pass)) {
+        ViewTemplate::alert("success", "Le transporteur a été modifié avec succès", "liste-transporteuradmin.php");
     } else {
-        ViewTemplate::alert("danger", "Echec de la modification", "profil-employe.php");
+        ViewTemplate::alert("danger", "Echec de la modification", "liste-transporteuradmin.php");
     }
 } else {
-    ViewTemplate::alert("danger", "Aucune donnée n'a été transmise", "profil-employe.php");
+    ViewTemplate::alert("danger", "Aucune donnée n'a été transmise", "liste-transporteuradmin.php");
 }
 
 ViewTemplate::footer();

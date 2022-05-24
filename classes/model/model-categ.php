@@ -63,7 +63,18 @@ class ModelCateg
       ':id' => $id,
     ]);
   }
-
+  
+  public function ModifCateg($id, $nom)
+  {
+    $idcon = connexion();
+    $requet = $idcon->prepare("
+      UPDATE produit SET nom = :nom  WHERE id = :id
+    ");
+    return $requet->execute([
+      ':id' => $id,
+      ':nom' => $nom,
+    ]);
+  }
   //public function resetClient($token){$token = random_bytes(32);$requete = $idcon->prepare("INSERT INTO client values (:token);"); $requete->execute([ ':token' => hash('sha256', $token),]);}
 
 

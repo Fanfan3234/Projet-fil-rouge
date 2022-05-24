@@ -44,7 +44,7 @@ class ModelMarque
     ]);
   }
 
- 
+  
 
   public static function pageMarque($id)
   {
@@ -92,7 +92,7 @@ class ModelMarque
 
 
 
-  public function modifProduit($id, $nom, $logo)
+  public function modifMarque($id, $nom, $logo)
   {
     $idcon = connexion();
     $requet = $idcon->prepare("

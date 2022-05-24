@@ -171,5 +171,27 @@ class ViewCateg
     <?php
     }
 
+    public static function ModifCateg($id)
+    {
+        $categ = new ModelCateg();
+        $user = $categ->voirCateg($id);
+    ?>
+
+        <form class="col-md-6 offset-md-3" method="post" action="modif-produit.php">
+            <a href="liste-produitadmin.php" class="btn btn-primary">
+                Retour</a>
+            <input type="hidden" class="form-control" name="id" id="id" value="<?= $user['id'] ?>">
+            <div class="form-group">
+                <label for="nom">Nom : </label>
+                <input type="text" class="form-control" name="nom" id="nom">
+               
+            </div>
+            <button type="submit" class="btn btn-primary" name="modif-produit" id="modif-produit">Modifier</button>
+            <button type="reset" class="btn btn-danger">Réinitialiser</button>
+        </form>
+
+    <?php
+    }
+
     
 }

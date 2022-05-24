@@ -6,17 +6,36 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-  <title>Liste des categories</title>
+  <title>Suppression de transporteur</title>
 </head>
 
 <body>
   <?php
-  require_once "../view/view-categ.php";
-  require_once "../view/view-template.php";
   require_once "../view/view-employe.php";
+  require_once "../view/view-template.php";
+  require_once "../view/view-transporteur.php";
+  require_once "../model/model-transporteur.php";
 
   ViewTemplate::menu();
-  ViewCateg::listeCategAdmin();
+
+  if(isset($_GET['id'])) {
+    $transporteur = new ModelTransporteur();
+    if($transporteur->voirTransporteur($_GET['id'])) {
+      if($transporteur->suppTransporteur($_GET['id'])){
+        ViewTemplate::alert("success", "Transporteur supprimé avec succès", "liste-transporteur.php");
+      }
+      else{
+        ViewTemplate::alert("danger", "Echec de la suppression", "liste-transporteur.php");
+      }
+    }
+    else {
+      ViewTemplate::alert("danger", "Le transporteur n'existe pas", "liste-transporteur.php");
+    }
+  }
+  else {
+    ViewTemplate::alert("danger", "Aucune donnée n'a été transmise", "liste-transporteur.php");
+  }
+
   ViewTemplate::footer();
   ?>
 
