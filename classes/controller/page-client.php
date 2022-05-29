@@ -25,7 +25,7 @@
     header('Location: login-client.php');
     exit;
   }
-  ViewClient::menu();
+  ViewClient::menuClient();
   ?>
   <?php
   echo $salutation;

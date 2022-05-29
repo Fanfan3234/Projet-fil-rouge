@@ -15,7 +15,7 @@
   require_once "../view/view-template.php";
   require_once "../view/view-marque.php";
 
-  ViewTemplate::menu();
+  ViewMarque::menuMarque();
   ViewMarque::listeMarque();
   ViewTemplate::footer();
   ?>

@@ -16,8 +16,8 @@ require_once "../model/model-produit.php";
 require_once "../view/view-template.php";
 require_once "../view/view-produit.php";
 
-ViewTemplate::menu();
-
+ViewProduit::menuProduit();
+ViewProduit::ajoutProduit();
 // $client = new ModelClient();
 //     if ($client->connexionClient('test@mail.fr')) {
 //       ViewTemplate::alert("danger", "Email déja utilisé", "ajout-client.php");

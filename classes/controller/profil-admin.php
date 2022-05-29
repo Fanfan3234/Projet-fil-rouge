@@ -14,6 +14,7 @@
     <?php
     session_start();
     require_once "../view/view-template.php";
+    require_once "../view/view-marque.php";
     require_once "../view/view-employe.php";
     require_once "../model/model-employe.php";
 

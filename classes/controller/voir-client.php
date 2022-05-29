@@ -13,8 +13,9 @@
   <?php
   require_once "../view/view-client.php";
   require_once "../view/view-template.php";
+  require_once "../view/view-employe.php";
 
-  ViewTemplate::menu();
+  ViewClient::menuClient();
   ViewClient::voirClient($_GET['id']);
   ViewTemplate::footer();
 

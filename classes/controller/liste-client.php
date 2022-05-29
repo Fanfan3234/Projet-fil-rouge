@@ -15,7 +15,7 @@
   require_once "../view/view-template.php";
   require_once "../view/view-employe.php";
 
-  ViewEmploye::menu3();
+  ViewClient::menuAdmin();
   ViewClient::listeClient();
   ViewTemplate::footer();
   ?>

@@ -15,7 +15,7 @@
   require_once "../view/view-template.php";
   require_once "../model/model-employe.php";
 
-  ViewTemplate::menu();
+  ViewTemplate::menuSupp();
 
   if(isset($_GET['id'])) {
     $employe = new ModelEmploye();

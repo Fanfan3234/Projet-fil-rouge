@@ -11,32 +11,28 @@
 
 <body>
   <?php
-  
-  require_once "../view/view-template.php";
-  require_once "../model/model-produit.php";
+require_once "../view/view-produit.php";
+require_once "../view/view-template.php";
+require_once "../model/model-produit.php";
 
-  ViewTemplate::menu();
+ViewTemplate::menuSupp();
 
-  if(isset($_GET['id'])) {
+if (isset($_GET['id'])) {
     $produit = new ModelProduit();
-    if($produit->voirProduit($_GET['id'])) {
-      if($produit->suppProduit($_GET['id'])){
-        ViewTemplate::alert("success", "Produit supprimé avec succès", "liste-produit.php");
-      }
-      else{
-        ViewTemplate::alert("danger", "Echec de la suppression", "liste-produit.php");
-      }
+    if ($produit->voirProduit($_GET['id'])) {
+        if ($produit->suppProduit($_GET['id'])) {
+            ViewTemplate::alert("success", "Produit supprimé avec succès", "liste-produitadmin.php");
+        } else {
+            ViewTemplate::alert("danger", "Echec de la suppression", "liste-produitadmin.php");
+        }
+    } else {
+        ViewTemplate::alert("danger", "produit n'existe pas", "liste-produitadmin.php");
     }
-    else {
-      ViewTemplate::alert("danger", "Contact n'existe pas", "liste-produit.php");
-    }
-  }
-  else {
-    ViewTemplate::alert("danger", "Aucune donnée n'a été transmise", "liste-produit.php");
-  }
+} else {
+    ViewTemplate::alert("danger", "Aucune donnée n'a été transmise", "liste-produitadmin.php");}
 
-  ViewTemplate::footer();
-  ?>
+ViewTemplate::footer();
+?>
 
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>

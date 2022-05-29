@@ -15,8 +15,8 @@
   require_once "../view/view-template.php";
   require_once "../view/view-employe.php";
 
-  ViewTemplate::menu();
-  ViewCateg::listeCategAdmin();
+  ViewCateg::menuCateg();
+  ViewCateg::listeCateg();
   ViewTemplate::footer();
   ?>
 

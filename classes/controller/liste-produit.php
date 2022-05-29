@@ -15,8 +15,8 @@
   require_once "../view/view-template.php";
   require_once "../view/view-employe.php";
 
-  ViewTemplate::menu();
-  ViewProduit::listeProduitadmin();
+  ViewProduit::menuProduit();
+  ViewProduit::listeProduit();
   ViewTemplate::footer();
   ?>
 

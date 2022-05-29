@@ -32,7 +32,7 @@
         header('Location: login-employe.php');
         exit;
     }
-    ViewEmploye::menu();
+    ViewEmploye::menuEmploye();
 
     ViewEmploye::profilEmploye($id);
 

@@ -16,7 +16,7 @@ require_once "../model/model-categ.php";
 require_once "../view/view-template.php";
 require_once "../view/view-categ.php";
 
-ViewTemplate::menu();
+ViewCateg::menuCateg();
 
 // $client = new ModelClient();
 //     if ($client->connexionClient('test@mail.fr')) {

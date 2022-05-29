@@ -17,7 +17,7 @@
     require_once "../view/view-employe.php";
     require_once "../view/view-client.php";
 
-    ViewEmploye::menu4();
+    ViewClient::menuClient();
 
     // $client = new ModelClient();
     //     if ($client->connexionClient('test@mail.fr')) {

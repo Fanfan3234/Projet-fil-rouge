@@ -16,8 +16,8 @@ require_once "../model/model-marque.php";
 require_once "../view/view-template.php";
 require_once "../view/view-marque.php";
 
-ViewTemplate::menu();
-
+ViewMarque::menuMarque();
+ViewMarque::ajoutMarque();
 // $client = new ModelClient();
 //     if ($client->connexionClient('test@mail.fr')) {
 //       ViewTemplate::alert("danger", "Email déja utilisé", "ajout-client.php");

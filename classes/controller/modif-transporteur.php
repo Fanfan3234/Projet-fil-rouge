@@ -15,7 +15,7 @@ require_once "../view/view-transporteur.php";
 require_once "../view/view-template.php";
 require_once "../model/model-transporteur.php";
 
-ViewEmploye::menu();
+ViewTransporteur::menuTransporteur();
 
 $transporteur = new ModelTransporteur();
 if (isset($_GET['id'])) {
@@ -24,7 +24,7 @@ if (isset($_GET['id'])) {
     } else {
         ViewTemplate::alert("danger", "Le transporteur n'existe pas", "liste-transporteuradmin.php");
     }
-    if ($marque->modifTransporteur($_POST['id'], $_POST['nom'], $_POST['prenom'], $_POST['mail'], $pass)) {
+    if ($marque->modifTransporteur($_POST['id'], $_POST['nom'], $_POST['logo'])) {
         ViewTemplate::alert("success", "Le transporteur a été modifié avec succès", "liste-transporteuradmin.php");
     } else {
         ViewTemplate::alert("danger", "Echec de la modification", "liste-transporteuradmin.php");

@@ -16,7 +16,7 @@ require_once "../view/view-commande.php";
 require_once "../view/view-template.php";
 require_once "../model/model-commande.php";
 
-ViewEmploye::menu();
+ViewCommande::menuCommande();
 
 $commande = new ModelCommande();
 if (isset($_GET['id'])) {

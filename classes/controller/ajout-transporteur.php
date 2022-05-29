@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-  <title>Ajout de transporteur</title>
+  <title>Ajout de marque</title>
 </head>
 <body>
 
@@ -16,8 +16,8 @@ require_once "../model/model-transporteur.php";
 require_once "../view/view-template.php";
 require_once "../view/view-transporteur.php";
 
-ViewTemplate::menu();
-
+ViewTransporteur::menuTransporteur();
+ViewTransporteur::ajoutTransporteur();
 // $client = new ModelClient();
 //     if ($client->connexionClient('test@mail.fr')) {
 //       ViewTemplate::alert("danger", "Email déja utilisé", "ajout-client.php");
@@ -25,8 +25,8 @@ ViewTemplate::menu();
 
 if (isset($_POST['ajout'])) {
     $transporteur = new ModelTransporteur();
-    if ($transporteur->ajoutTransporteur($_POST['nom'], $_POST['ref'], $_POST['description'], $_POST['quantite'], $_POST['prix'], $_POST['photo'], $_POST['id_categorie'], $_POST['id_marque'])) {
-        ViewTemplate::alert("success", "Transporteur ajouté avec succès", "liste-transporteur.php");
+    if ($transporteur->ajoutTransporteur($_POST['nom'], $_POST['logo'])) {
+        ViewTemplate::alert("success", "Transporteur ajoutée avec succès", "liste-transporteur.php");
     } else {
         ViewTemplate::alert("danger", "Erreur d'ajout", "ajout-transporteur.php");
     }

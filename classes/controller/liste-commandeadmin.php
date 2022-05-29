@@ -15,7 +15,7 @@
   require_once "../view/view-template.php";
   require_once "../model/model-client.php";
 
-  ViewClient::menu();
+  ViewCommande::menuAdmin();
   ViewCommande::listeCommandeAdmin();
   ViewTemplate::footer();
   ?>

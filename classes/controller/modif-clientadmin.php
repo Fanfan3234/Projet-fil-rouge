@@ -15,25 +15,25 @@
   require_once "../view/view-template.php";
   require_once "../model/model-client.php";
 
-  ViewClient::menu();
+  ViewClient::menuAdmin();
 
   $client = new ModelClient();
   if (isset($_GET['id'])) {
     if ($client->voirClient($_GET['id'])) {
       ViewClient::modifClient($_GET['id']);
     } else {
-      ViewTemplate::alert("danger", "Le client  n'existe pas", "profil-client.php");
+      ViewTemplate::alert("danger", "Le client  n'existe pas", "liste-client.php");
     }
   } else {
     $pass  = password_hash($_POST['pass'], PASSWORD_DEFAULT);
     if (isset($_POST['id']) && $client->voirClient($_POST['id'])) {
       if ($client->modifClient($_POST['id'], $_POST['nom'], $_POST['prenom'], $_POST['mail'], $pass, $_POST['tel'], $_POST['adresse'], $_POST['ville'], $_POST['code_post'], $_POST['token'])) {
-        ViewTemplate::alert("success", "Le client a été modifié avec succès", "profil-client.php");
+        ViewTemplate::alert("success", "Le client a été modifié avec succès", "liste-client.php");
       } else {
-        ViewTemplate::alert("danger", "Echec de la modification", "profil-client.php");
+        ViewTemplate::alert("danger", "Echec de la modification", "liste-client.php");
       }
     } else {
-      ViewTemplate::alert("danger", "Aucune donnée n'a été transmise", "profil-client.php");
+      ViewTemplate::alert("danger", "Aucune donnée n'a été transmise", "liste-client.php");
     }
   }
 
