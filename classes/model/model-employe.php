@@ -28,17 +28,17 @@ class ModelEmploye
         $requete->execute();
         return $requete->fetchAll(PDO::FETCH_ASSOC);
     }
-    
+
     public static function profilEmploye($id)
     {
-      $idcon = connexion();
-      $requete = $idcon->prepare("
+        $idcon = connexion();
+        $requete = $idcon->prepare("
         SELECT * FROM employe where id=:id;
       ");
-      $requete->execute([
-        ':id' => $id,
-      ]);
-      return $requete->fetch(PDO::FETCH_ASSOC);
+        $requete->execute([
+            ':id' => $id,
+        ]);
+        return $requete->fetch(PDO::FETCH_ASSOC);
     }
 
     public function ajoutEmploye($nom, $prenom, $mail, $pass, $role)
@@ -81,7 +81,7 @@ class ModelEmploye
         return $requete->fetch(PDO::FETCH_ASSOC);
     }
 
-    
+
 
 
     public function voirEmploye($id)

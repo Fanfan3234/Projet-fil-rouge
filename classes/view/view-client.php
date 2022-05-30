@@ -16,8 +16,10 @@ class ViewClient
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Clients</th>
-                            
+                            <th scope="col">Nom</th>
+                            <th scope="col">Prénom</th>
+                            <th scope="col">Mail</th>
+                            <th scope="col">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -25,24 +27,22 @@ class ViewClient
                         <?php
                         foreach ($liste as $client) {
                         ?>
-                            <th scope="row"><?= $client['id'] ?></th>
-                                <td><?= $client['nom'] ?>
-                                    <?= $client['prenom'] ?>
-                                    <?= $client['mail'] ?>
-                                    <?= $client['tel'] ?>
-                                    <br/>
-                                    <?= $client['adresse'] ?>
-                                    <br />
-                                    <?= $client['ville'] ?>&nbsp<?= $client['code_post'] ?>
-                                    <br/>
+                            <tr>
+                                <th scope="row"><?= $client['id'] ?></th>
+                                <td><?= $client['nom'] ?></td>
+                                <td><?= $client['prenom'] ?></td>
+                                <td><?= $client['mail'] ?></td>
+                                <td>
                                     <a href="voir-client.php?id=<?= $client['id'] ?>" class="btn btn-primary">Voir</a>
+                                    <a href="modif-client.php?id=<?= $client['id'] ?>" class="btn btn-info">Modifier</a>
+                                    <a href="supp-client.php?id=<?= $client['id'] ?>" class="btn btn-danger">Supprimer</a>
                                 </td>
-                            
+                            </tr>
                         <?php
                         }
                         ?>
                     </tbody>
-                    <a href="page-employe.php" class="btn btn-primary">
+                    <a href="admin.php" class="btn btn-primary">
                         < Retour</a>
                 </table>
             <?php
@@ -52,21 +52,20 @@ class ViewClient
                     Aucun contact n'existe dans la liste.
                 </div>
             <?php
-            }  ?>
+            } ?>
         </div>
     <?php
     }
 
-    
 
-    public static function menu()
+
+    public static function menuClient()
     {
-
 
     ?>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
-            <div class="contenair">
-                <a class="navbar-brand" href="page-client.php">Navbar</a>
+            <div class="contenair-fluid">
+                <a class="navbar-brand" href="page-employe.php">Navbar</a>
             </div>
             <div class="container">
 
@@ -75,29 +74,79 @@ class ViewClient
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="liste-produit.php">Produits <span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="contact.php">Contact <span class="sr-only"></span></a>
+                        </li>
+
+                    </ul>
+
 
 
                 </div>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-
-                </form>
-
             </div>
-            <!--<li class="nav-item">-->
+            <form class="form-inline my-2 my-lg-0">
 
-
-            </li>
-            <ul class="navbar-nav mr-auto">
-                <a class="nav-link" href="profil-client.php">Profil <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="profil-employe.php">Profil<span class="sr-only">(current)</span></a>
                 <a class="nav-link" href="deconnexion.php">Deconnexion <span class="sr-only">(current)</span></a>
+            </form>
+        </nav>
+    <?php
+
+    }
+
+    public static function menuAdmin()
+    {
+
+    ?>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+            <div class="contenair-fluid">
+                <a class="navbar-brand" href="admin.php">Navbar</a>
+            </div>
+            <div class="container">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="liste-produitadmin.php">Produits <span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="liste-client.php">Clients<span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="liste-employe.php">Employes <span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="liste-marque.php">Marques <span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="liste-categ.php">Categories <span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="liste-transporteur.php">Transporteurs <span class="sr-only"></span></a>
+                        </li>
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="admin.php">Espace admin <span class="sr-only"></span></a>
+                        </li>
+                    </ul>
 
 
 
+                </div>
+            </div>
+            <form class="form-inline my-2 my-lg-0">
 
-            </ul>
-
+                <a class="nav-link" href="profil-employe.php">Profil<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="deconnexion.php">Deconnexion <span class="sr-only">(current)</span></a>
+            </form>
         </nav>
     <?php
 
@@ -134,8 +183,7 @@ class ViewClient
     ?>
         <div>
             <div class="card" style="width: 18rem;">
-                <a href="page-client.php" class="btn btn-primary">
-                    Retour</a>
+
                 <div class="card-body">
                     <h5 class="card-title"><?= "#" . $user['id'] . " <br/> " . $user['nom'] . " " . $user['prenom'] . "<br/>" . $user['adresse'] . " <br/> " . $user['ville'] . "  " . $user['code_post'] . " ";  ?> </h5>
 
@@ -178,7 +226,7 @@ class ViewClient
     <?php
     }
 
-    
+
     //action="<?php htmlspecialchars($_SERVER["PHP_SELF"]);">//
     public static function ajoutClient()
     { ?>

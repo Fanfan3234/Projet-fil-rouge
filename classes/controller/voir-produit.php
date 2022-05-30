@@ -14,7 +14,7 @@
   require_once "../view/view-produit.php";
   require_once "../view/view-template.php";
 
-  //ViewProduit::menuProduit();
+  ViewProduit::menuProduit();
   ViewProduit::voirProduit($_GET['id']);
   if (isset($_POST['id'], $_POST['quantite']) && is_numeric($_POST['id']) && is_numeric($_POST['quantite'])) {
     $produit_id = (int)$_POST['id'];

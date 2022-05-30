@@ -68,7 +68,7 @@ class ModelCateg
   {
     $idcon = connexion();
     $requet = $idcon->prepare("
-      UPDATE produit SET nom = :nom  WHERE id = :id
+      UPDATE categorie SET nom = :nom  WHERE id = :id
     ");
     return $requet->execute([
       ':id' => $id,

@@ -121,7 +121,7 @@ class ViewEmploye
                     </p>
                     <a href="modif-employe.php?id=<?= $user['id'] ?>" class="btn btn-info">Modifier</a>
                     <a href="supp-employe.php?id=<?= $user['id'] ?>" class="btn btn-danger">Supprimer</a><br><br>
-                    <a href="page-employe.php" class="btn btn-primary">
+                    <a href="admin.php" class="btn btn-primary">
                         < Retour</a>
                 </div>
             </div>
@@ -202,14 +202,26 @@ class ViewEmploye
         <body>
 
             <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-                <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="page-employe.php">Acceuil</a>
-                <br />
+                <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="admin.php">Acceuil</a>
 
 
-                <ul class="navbar-nav px-3">
 
-                </ul>
+
+
+
+
+
+
+
+
+
+
             </nav>
+
+            <a class="nav-link" href="profil-admin.php">Profil</a>
+            <a class="nav-link" href="deconnexion.php">Deconnexion</a>
+
+
             <br />
 
             <div class="container">
@@ -221,15 +233,7 @@ class ViewEmploye
                     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                         <div class="sidebar-sticky pt-3">
                             <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="profil-employe.php">
-                                        <span data-feather="home"></span>
-                                        Profil <span class="sr-only">(current)</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item text-nowrap">
-                                    <a class="nav-link" href="deconnexion.php">Deconnexion</a>
-                                </li>
+
                                 <li class="nav-item">
                                     <a class="nav-link" href="liste-employe.php">
                                         <span data-feather="file"></span>
@@ -245,13 +249,13 @@ class ViewEmploye
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown" aria-expanded="false">Produits</a>
                                     <div class="dropdown-menu" aria-labelledby="dropdown07">
-                                        <a class="dropdown-item" href="liste-porduit.php">Produits</a>
+                                        <a class="dropdown-item" href="liste-produitadmin.php">Produits</a>
                                         <a class="dropdown-item" href="liste-marque.php">Marques</a>
                                         <a class="dropdown-item" href="liste-categ.php">Categories</a>
                                     </div>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="liste-transport.php">
+                                    <a class="nav-link" href="liste-transporteur.php">
                                         <span data-feather="bar-chart-2"></span>
                                         Transporteurs
                                     </a>
@@ -424,7 +428,7 @@ class ViewEmploye
 
     }
 
-    public static function menu()
+    public static function menuEmploye()
     {
 
     ?>
@@ -444,10 +448,7 @@ class ViewEmploye
                             <a class="nav-link" href="liste-client.php">liste clients <span class="sr-only"></span></a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="admin.php">Espace admin <span class="sr-only"></span></a>
 
-                        </li>
                     </ul>
 
 
@@ -470,7 +471,7 @@ class ViewEmploye
     ?>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
             <div class="contenair-fluid">
-                <a class="navbar-brand" href="page-employe.php">Navbar</a>
+                <a class="navbar-brand" href="admin.php">Navbar</a>
             </div>
             <div class="container">
 
@@ -480,12 +481,27 @@ class ViewEmploye
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="liste-produitadmin.php">Produits <span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="liste-client.php">Clients<span class="sr-only"></span></a>
+                        </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="liste-client.php">liste clients <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="liste-employe.php">Employes <span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="liste-marque.php">Marques <span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="liste-categ.php">Categories <span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="liste-transporteur.php">Transporteurs <span class="sr-only"></span></a>
                         </li>
 
-                        <li class="nav-item">
-
+                        <li class="nav-item active">
+                            <a class="nav-link" href="admin.php">Espace admin <span class="sr-only"></span></a>
                         </li>
                     </ul>
 
