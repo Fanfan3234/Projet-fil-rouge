@@ -78,7 +78,7 @@ class ViewProduit
             <?= $user['id'] . " " . $user['nom'] . " "; ?> </h5>
 
           <p class="card-text">
-            <?= $user['photo']; ?>
+           <? echo '<img src="'.$user['photo'].'" alt="HTML5 Icon" style="width:128px;height:128px">';?>
             <br />
             ref : <?= $user['ref'] . " "; ?>
             <br />
@@ -240,7 +240,7 @@ class ViewProduit
 
 
           <p class="card-text">
-            <img src="/images/adidas.png<?= $user['photo'] ?>" width="500" height="500" alt="<?= $user['nom'] ?>">
+            <img src="<?= $user['photo'] ?>"  alt="<?= $user['nom'] ?>">
           <div>
             <h1 class="name"><?= $user['nom'] ?></h1>
             <?= "ref : " . $user['ref'] . " "; ?>

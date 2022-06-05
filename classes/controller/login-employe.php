@@ -18,12 +18,12 @@
   
   require_once "../model/model-employe.php";
 
-  ViewEmploye::menu4();
+  ViewTemplate::menuLogin();
 
   if (isset($_POST['connexion'])) {
     $employe = new ModelEmploye();
     $userData = $employe->connexionEmploye($_POST['mail']);
-    //var_dump($userData);
+   
     var_dump(password_verify($_POST['pass'], $userData['pass']));
     if ($userData && password_verify($_POST['pass'], $userData['pass'])) {
       $_SESSION['id'] = $userData['id'];
@@ -40,7 +40,7 @@
       ViewTemplate::alert("danger", "Identifiants incorrects", "login-client");
     }
   } else {
-    //francoisgoddefroy62@gmail.com
+    
   ?>
 
   <?php

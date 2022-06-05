@@ -17,12 +17,9 @@
     require_once "../view/view-employe.php";
     require_once "../view/view-client.php";
 
-    ViewClient::menuClient();
+    ViewTemplate::menuLogin();
 
-    // $client = new ModelClient();
-    //     if ($client->connexionClient('test@mail.fr')) {
-    //       ViewTemplate::alert("danger", "Email déja utilisé", "ajout-client.php");
-    //     }
+    
 
 
     if (isset($_POST['ajout'])) {

@@ -15,10 +15,9 @@
   session_start();
   require_once "../view/view-template.php";
   require_once "../view/view-client.php";
-  require_once "../view/view-employe.php";
   require_once "../model/model-client.php";
 
-  ViewEmploye::menu4();
+  ViewTemplate::menuLogin();
 
   if (isset($_POST['connexion'])) {
     $client = new ModelClient();

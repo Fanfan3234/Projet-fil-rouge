@@ -44,6 +44,8 @@ class ViewEmploye
                     </tbody>
                     <a href="admin.php" class="btn btn-primary">
                         < Retour</a>
+                    <a href="ajout-employe.php" class="btn btn-primary">
+                        Ajout</a>
                 </table>
             <?php
             } else {
@@ -303,130 +305,8 @@ class ViewEmploye
 
     }
 
-    public static function menu3()
-    {
-
-    ?>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
-            <div class="contenair">
-                <a class="navbar-brand" href="page-client.php">Navbar</a>
-            </div>
-            <div class="container">
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <!--<a class="nav-link" href="liste-client.php">liste clients <span class="sr-only">(current)</span></a>
-
-                        </li>
-
-                        <li class="nav-item active">
-                            <a class="nav-link" href="liste-employe.php">liste employes<span class="sr-only">(current)</span></a>-->
-
-                        </li>
-                    </ul>
-
-
-
-                </div>
-                <form class="form-inline my-2 my-lg-0">
-                    <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
-
-                </form>
-
-
-            </div>
-
-
-            </div>
-            <!--<li class="nav-item">-->
-
-
-            </li>
-            <ul class="navbar-nav mr-auto">
-                <a class="nav-link" href="profil-employe.php">Profil <span class="sr-only">(current)</span></a>
-                <a class="nav-link" href="deconnexion.php">Deconnexion <span class="sr-only">(current)</span></a>
-
-
-
-
-            </ul>
-
-        </nav>
-    <?php
-
-    }
-    public static function menu4()
-    {
-
-    ?>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
-            <div class="contenair">
-                <a class="navbar-brand" href="page-client.php">Navbar</a>
-            </div>
-            <div class="container">
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="ajout-client.php">Inscription clients <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="ajout-employe.php">Inscription employes <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item active">
-                            <!--<a class="nav-link" href="liste-client.php">liste clients <span class="sr-only">(current)</span></a>
-
-                        </li>
-
-                        <li class="nav-item active">
-                            <a class="nav-link" href="liste-employe.php">liste employes<span class="sr-only">(current)</span></a>-->
-
-                        </li>
-                    </ul>
-
-
-
-                </div>
-                <form class="form-inline my-2 my-lg-0">
-                    <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
-
-                </form>
-
-
-            </div>
-
-
-            </div>
-            <!--<li class="nav-item">-->
-
-
-            </li>
-            <ul class="navbar-nav mr-auto">
-                <!--<a class="nav-link" href="profil-admin.php">Profil <span class="sr-only">(current)</span></a>
-                <a class="nav-link" href="deconnexion.php">Deconnexion <span class="sr-only">(current)</span></a>-->
-
-
-
-
-            </ul>
-
-        </nav>
-    <?php
-
-    }
+   
+    
 
     public static function menuEmploye()
     {

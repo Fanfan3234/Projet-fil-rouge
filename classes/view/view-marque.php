@@ -1,5 +1,6 @@
 <?php
 require_once '../model/model-marque.php';
+require_once '../model/model-produit.php';
 
 class ViewMarque
 {
@@ -30,7 +31,7 @@ class ViewMarque
                             <tr>
                                 <th scope="row"><?= $marque['id'] ?></th>
                                 <td><?= $marque['nom'] ?></td>
-                                <td><?= $marque['logo'] ?></td>
+                                <td><img class="fit-picture" src="images/<?= $marque['logo'] ?>" alt="logo marque"></td>
                                 <td>
                                     <a href="voir-marque.php?id=<?= $marque['id'] ?>" class="btn btn-primary">Voir</a>
                                     <a href="modif-marque.php?id=<?= $marque['id'] ?>" class="btn btn-info">Modifier</a>
@@ -62,17 +63,23 @@ class ViewMarque
     {
         $client = new ModelMarque();
         $user = $client->voirMarque($id);
+
+
     ?>
         <div>
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title"><?= $user['id'] . " : " . $user['nom'] . " " . $user['logo'] . " "; ?> </h5>
-
-
-                    <a href="modif-marque.php?id=<?= $user['id'] ?>" class="btn btn-info">Modifier</a>
-                    <a href="supp-marque.php?id=<?= $user['id'] ?>" class="btn btn-danger">Supprimer</a><br><br>
-                    <a href="liste-client.php" class="btn btn-primary">
+                    <a href="liste-marque.php" class="btn btn-primary">
                         < Retour</a>
+
+                            <h5 class="card-title"><?= $user['id'] . " : " . $user['nom'] . " <br/>"; ?></h5>
+                            <img src="images/<?= $user['logo'] ?>" alt="logo marque">
+
+
+                            <br />
+                            <a href="modif-marque.php?id=<?= $user['id'] ?>" class="btn btn-info">Modifier</a>
+                            <a href="supp-marque.php?id=<?= $user['id'] ?>" class="btn btn-danger">Supprimer</a><br><br>
+
                 </div>
             </div>
         </div>

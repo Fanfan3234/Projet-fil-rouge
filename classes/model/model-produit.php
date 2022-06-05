@@ -33,9 +33,21 @@ class ModelProduit
   {
     $idcon = connexion();
     $requete = $idcon->prepare("
-      SELECT * FROM produit
+      SELECT * FROM produit 
     ");
     $requete->execute();
+    return $requete->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  public function listeProduitMarque($id_marque)
+  {
+    $idcon = connexion();
+    $requete = $idcon->prepare("
+      SELECT * FROM produit where id_marque=:id_marque;
+    ");
+    $requete->execute([
+      ':id_marque' => $id_marque,
+    ]);
     return $requete->fetchAll(PDO::FETCH_ASSOC);
   }
 

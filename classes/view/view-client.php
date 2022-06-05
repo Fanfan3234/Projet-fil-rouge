@@ -19,6 +19,7 @@ class ViewClient
                             <th scope="col">Nom</th>
                             <th scope="col">Prénom</th>
                             <th scope="col">Mail</th>
+                            <th scope="col">Adresse</th>
                             <th scope="col">Actions</th>
                         </tr>
                     </thead>
@@ -65,7 +66,7 @@ class ViewClient
     ?>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
             <div class="contenair-fluid">
-                <a class="navbar-brand" href="page-employe.php">Navbar</a>
+                <a class="navbar-brand" href="page-client.php">Navbar</a>
             </div>
             <div class="container">
 
@@ -83,6 +84,10 @@ class ViewClient
                         </li>
 
                     </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
 
 
 
@@ -90,7 +95,7 @@ class ViewClient
             </div>
             <form class="form-inline my-2 my-lg-0">
 
-                <a class="nav-link" href="profil-employe.php">Profil<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="profil-client.php">Profil<span class="sr-only">(current)</span></a>
                 <a class="nav-link" href="deconnexion.php">Deconnexion <span class="sr-only">(current)</span></a>
             </form>
         </nav>
@@ -144,7 +149,7 @@ class ViewClient
             </div>
             <form class="form-inline my-2 my-lg-0">
 
-                <a class="nav-link" href="profil-employe.php">Profil<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="profil-employe.php">Profil <span class="sr-only">(current)</span></a>
                 <a class="nav-link" href="deconnexion.php">Deconnexion <span class="sr-only">(current)</span></a>
             </form>
         </nav>
@@ -185,11 +190,13 @@ class ViewClient
             <div class="card" style="width: 18rem;">
 
                 <div class="card-body">
-                    <h5 class="card-title"><?= "#" . $user['id'] . " <br/> " . $user['nom'] . " " . $user['prenom'] . "<br/>" . $user['adresse'] . " <br/> " . $user['ville'] . "  " . $user['code_post'] . " ";  ?> </h5>
+                    <h5 class="card-title"><?= "#" . $user['id'] . " " . $user['prenom'] . " " . $user['nom'] . " ";  ?> </h5>
 
                     <p class="card-text">
-                        Mail : <a href="mailto:<?= $user['mail'] ?>" target="_blank"><?= $user['mail'] ?></a><br>
-                        Tel : <a href="tel:<?= $user['tel'] ?>" target="_blank"><?= $user['tel'] ?></a>
+                        Adresse:<br /><?= $user['adresse'] . " <br/>"  . $user['code_post'] . " " . $user['ville'] . " ";  ?>
+                        <br />
+                        Mail : <br><a href="mailto:<?= $user['mail'] ?>" target="_blank"><?= $user['mail'] ?></a><br>
+                        Tel : <br><a href="tel:<?= $user['tel'] ?>" target="_blank"><?= $user['tel'] ?></a>
                     </p>
                     <a href="modif-client.php?id=<?= $user['id'] ?>" class="btn btn-info">Modifier</a>
                     <a href="supp-client.php?id=<?= $user['id'] ?>" class="btn btn-danger">Supprimer</a><br><br>
@@ -210,11 +217,14 @@ class ViewClient
         <div>
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title"><?= $user['id'] . " : " . $user['nom'] . " " . $user['prenom'] . $user['adresse'] . " " . $user['ville'] . " " . $user['code_post'] . " ";  ?> </h5>
+                    <h5 class="card-title"><?= "#" . $user['id'] . "  " . $user['prenom'] . " " . $user['nom'] . " ";  ?> </h5>
 
                     <p class="card-text">
-                        Mail : <a href="mailto:<?= $user['mail'] ?>" target="_blank"><?= $user['mail'] ?></a><br>
-                        Tel : <a href="tel:<?= $user['tel'] ?>" target="_blank"><?= $user['tel'] ?></a>
+                        Adresse:<br /><?= $user['adresse'] . " <br/>" . $user['code_post'] . " " . $user['ville'] . " ";  ?>
+                        <br />
+
+                        Mail :<br> <a href="mailto:<?= $user['mail'] ?>" target="_blank"><?= $user['mail'] ?></a><br>
+                        Tel : <br><a href="tel:<?= $user['tel'] ?>" target="_blank"><?= $user['tel'] ?></a>
                     </p>
                     <a href="modif-client.php?id=<?= $user['id'] ?>" class="btn btn-info">Modifier</a>
                     <a href="supp-client.php?id=<?= $user['id'] ?>" class="btn btn-danger">Supprimer</a><br><br>
